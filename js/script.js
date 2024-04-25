@@ -32,7 +32,7 @@ function generarAleatorio(min, max) {
     return Math.floor((Math.random() * (max -min + 1) )+ min);
 }
 
-//funciones para pintar imagenes en orden aleatorio
+//funciones para pintar img en orden aleatorio
 
 const urls= [
 
@@ -47,7 +47,7 @@ const urls= [
 ];
 
 function pintarImagen(){
-    const contenedor = document.getElementById("contenedorImagenes");
+    const contenedor = document.getElementById("contenedorimg");
     contenedor.innerHTML =" ";
 
     let url=urls[generarAleatorio(0,urls.length-1)];
@@ -55,7 +55,14 @@ function pintarImagen(){
     image.src=url;
     image.width=200;
     contenedor.appendChild(image);
-
 }
+
+//Boton index: NuestrosProyectos
+
+const botonTexto = document.getElementById('botonProyectos');
+
+botonTexto.addEventListener('click', () => {
+  pintarImagen();
+});
 
 

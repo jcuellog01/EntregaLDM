@@ -44,17 +44,31 @@ const urls= [
     "https://www.carscoops.com/wp-content/uploads/2022/06/1990-BMW-M3-3.jpg",
     "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2017/11/bmw-m3-e30-1986_4.jpg?tf=3840x",
     "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2021/12/P90236517_highRes_the-bmw-m3-compact-e.jpg"
-];
+]
+
+const textos =[
+    "Z3-ROADSTER",
+    "BMW 850CSI",
+    "White BMW E30",
+    "Red BMW E30",
+    "BMW M3",
+    "BMW M3 E30",
+    "M3 COMPACT",
+
+]
 
 function pintarImagen(){
     const contenedor = document.getElementById("contenedorimg");
     contenedor.innerHTML =" ";
-
-    let url=urls[generarAleatorio(0,urls.length-1)];
+    let aleatorio=generarAleatorio(0,urls.length-1)
+    let url=urls[aleatorio];
     let image= document.createElement("img");
+    let texto=textos[aleatorio];
     image.src=url;
-    image.width=200;
     contenedor.appendChild(image);
+    texto=contenedor.createElement("h3")
+
+    contenedor.appendChild
 }
 
 //Boton index: NuestrosProyectos

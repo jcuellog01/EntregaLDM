@@ -23,8 +23,9 @@ body {
     "section-1"
     "section-2"
     "proyectos"
-    "footer"
-    "copy";
+    "ubicacion"
+    "copy"
+    "footer";
   background-color: white;
   width: 100%;
   max-width: 100%;
@@ -301,20 +302,7 @@ section hr {
   padding: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 10rem auto auto auto auto auto 10rem;
-    grid-template-areas:
-      "header"
-      "nav"
-      "section-1"
-      "section-2"
-      "proyectos"
-      "footer"
-      "copy";
-  }
-}
+
 
 #button-div {
   text-align: center;
@@ -384,7 +372,7 @@ background-color: #797878;
 
  }
  #ubicacion h2{
-  margin: 0 auto;
+  padding-top: 2rem;
   
    }
    h2 {
@@ -395,7 +383,24 @@ background-color: #797878;
     width: fit-content; /* O un ancho específico */
   }
 #ubicacion iframe{
-  margin: 2rem 47rem ;
+  margin: 2rem 47rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem auto auto auto auto auto 10rem;
+    grid-template-areas:
+      "header"
+      "nav"
+      "section-1"
+      "section-2"
+      "proyectos"
+      "ubicacion" 
+      "copy"
+      "footer";
+      
+  }
 }
 
 

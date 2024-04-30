@@ -46,24 +46,20 @@ const urls= [
     "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2021/12/P90236517_highRes_the-bmw-m3-compact-e.jpg"
 ]
 
-const textos =[
-    "Z3-ROADSTER",
-    "BMW 850CSI",
-    "White BMW E30",
-    "Red BMW E30",
-    "BMW M3",
-    "BMW M3 E30",
-    "M3 COMPACT",
-
-]
-
 function pintarImagen(){
     const contenedor = document.getElementById("contenedorimg");
     contenedor.innerHTML =" ";
-    let aleatorio=generarAleatorio(0,urls.length-1)
+    let num=0;
+    let aleatorio=generarAleatorio(0,urls.length-1);
+    
+        
+    while(num==aleatorio){
+        aleatorio=generarAleatorio(0,urls.length-1);
+    }
+    num=aleatorio;
     let url=urls[aleatorio];
     let image= document.createElement("img");
-    let texto=textos[aleatorio];
+    
     image.src=url;
     contenedor.appendChild(image);
     texto=contenedor.createElement("h3")
@@ -74,9 +70,3 @@ function pintarImagen(){
 //Boton index: NuestrosProyectos
 
 const botonTexto = document.getElementById('botonProyectos');
-
-botonTexto.addEventListener('click', () => {
-  pintarImagen();
-});
-
-

@@ -403,4 +403,11 @@ background-color: #797878;
   }
 }
 
+#textoPersonalizado{
+  color: white;
+}
 
+#chuckJokes{
+  display: flex;
+  align-items: center;
+}

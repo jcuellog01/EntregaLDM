@@ -26,7 +26,6 @@ function generarAleatorio(min,max){
     return Math.floor((Math.random() * (max - min +1)) + min);
     }
 
-
 function generarAleatorio(min, max) {
 
     return Math.floor((Math.random() * (max -min + 1) )+ min);
@@ -35,15 +34,15 @@ function generarAleatorio(min, max) {
 //funciones para pintar img en orden aleatorio
 
 const urls= [
+  
+    
+    '',
+    './img/coche1.jpg',
+    './img/coche2.jpg',
+    './img/coche3.jpg',
+    './img/coche4.jpg',
+    './img/coche5.jpg',
 
-    "https://prestigeandperformancecar.com/wp-content/uploads/Z3-M-Roadster-900x563.jpg",
-    "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2022/06/1994-BMW-850CSI-2-Cropped.jpg",
-    "https://i.pinimg.com/originals/66/10/30/66103020a5ee9e5fcf1d9fd370c48590.jpg",
-    "https://hips.hearstapps.com/autoweek/assets/s3fs-public/9556668237_22071c7bd3_o.jpg",
-    "https://www.motortrend.com/uploads/2022/06/bmw-850i-front-end.png",
-    "https://www.carscoops.com/wp-content/uploads/2022/06/1990-BMW-M3-3.jpg",
-    "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2017/11/bmw-m3-e30-1986_4.jpg?tf=3840x",
-    "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2021/12/P90236517_highRes_the-bmw-m3-compact-e.jpg"
 ]
 
 function pintarImagen(){
@@ -130,24 +129,44 @@ textoElement.appendChild(countryParagraph);
     }
   }
 
-
-
-  // Obtenemos el chiste
+ 
+// Obtenemos el chiste
 function chistesAPI(){
-fetch('https://api.chucknorris.io/jokes/random')
-.then(response => response.json())
-.then(json => {
-    printChuck(json.value);
-});
-}
+  fetch('https://api.chucknorris.io/jokes/random')
+  .then(response => response.json())
+  .then(json => {
+      printChuck(json.value);
+  });
+  }
+  
+    // Pinta el chiste
+  function printChuck(joke) {
+  
+    var chuckJokesDiv = document.getElementById("chuckJokes");
+    chuckJokesDiv.innerHTML='';
+    var paragraph = document.createElement("h4");
+    var jokeText = document.createTextNode(joke);
+    paragraph.appendChild(jokeText);
+    chuckJokesDiv.appendChild(paragraph);
+  }
 
-  // Pinta el chiste
-function printChuck(joke) {
 
-  var chuckJokesDiv = document.getElementById("chuckJokes");
-  chuckJokesDiv.innerHTML='';
-  var paragraph = document.createElement("h4");
-  var jokeText = document.createTextNode(joke);
-  paragraph.appendChild(jokeText);
-  chuckJokesDiv.appendChild(paragraph);
-}
+  //pintar tu nombre
+    const textInput = document.getElementById('textInput');
+    const displayArea = document.getElementById('displayArea');
+    
+    textInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        const enteredText = "Bienvenido a Radikal MotorWorks, " + textInput.value + "!";
+        displayArea.textContent = enteredText;
+        textInput.value = "";
+      }
+    });
+    
+    const form = document.getElementById('myForm'); 
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); 
+      const enteredText = textInput.value;
+      displayArea.textContent = enteredText;
+      textInput.value = "";
+    });

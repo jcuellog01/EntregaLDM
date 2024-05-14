@@ -411,3 +411,7 @@ background-color: #797878;
   display: flex;
   align-items: center;
 }
+
+#containerNombre{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}

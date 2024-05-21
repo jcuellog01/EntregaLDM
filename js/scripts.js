@@ -60,18 +60,6 @@ function pintarTexto() {
     contenedor.appendChild(texto);
 }
 
-function pintarNombre() {
-  const contenedor = document.getElementById("contenedorNombre");
-  contenedor.innerHTML = "";
-
-  let aleatorio = generarAleatorio(0, textos.length - 1);
-  let desc = textos[aleatorio];
-
-  let texto = document.createElement("h3");
-  texto.innerText = desc;
-
-  contenedor.appendChild(texto);
-}
 
 function pintarImagen() {
     const contenedor = document.getElementById("contenedorimg");

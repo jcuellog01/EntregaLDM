@@ -28,7 +28,7 @@
         <main>
 
             <div class="containerNombre">
-                <input type="text" id="textInput" placeholder="Enter your text here" onSubmit>
+                <input type="text" id="textInput" placeholder="Introduce aqui tu nombre: " onSubmit>
                 <div id="displayArea"></div>
               </div>
             <section class="section-1">
@@ -54,12 +54,15 @@
 
             </section>
 
-            <div id="button-div"><button class="button" onclick="pintarImagen();"> <h5>NUESTROS PROYECTOS</h5></button></div>
-                
+
+        <div id="button-div">
+        <button class="button" onclick="pintarImagen(); pintarTexto();"> <h5>NUESTROS PROYECTOS</h5></button>
+        </div>
             <section class="proyectos">
 
                 
                 <div id="contenedorimg"><img src="img/gris.png"></div>
+                <div id="contenedorTextos"></div>
                
             </section>
 

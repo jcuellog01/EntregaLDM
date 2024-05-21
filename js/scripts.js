@@ -26,110 +26,79 @@ function generarAleatorio(min,max){
     return Math.floor((Math.random() * (max - min +1)) + min);
     }
 
-function generarAleatorio(min, max) {
-
-    return Math.floor((Math.random() * (max -min + 1) )+ min);
-}
 
 //funciones para pintar img en orden aleatorio
 
-const urls= [
-  
-    
+
+const urls = [
     '',
     './img/coche1.jpg',
     './img/coche2.jpg',
     './img/coche3.jpg',
     './img/coche4.jpg',
     './img/coche5.jpg',
+];
 
-]
+const textos = [
+    "bmw z3m",
+    "bmw e30",
+    "bmw e36",
+    "bmw m1",
+    "bmw e38"
+];
 
-function pintarImagen(){
-    const contenedor = document.getElementById("contenedorimg");
-    contenedor.innerHTML =" ";
-    let num=0;
-    let aleatorio=generarAleatorio(0,urls.length-1);
-    
-        
-    while(num==aleatorio){
-        aleatorio=generarAleatorio(0,urls.length-1);
-    }
-    num=aleatorio;
-    let url=urls[aleatorio];
-    let image= document.createElement("img");
-    
-    image.src=url;
-    contenedor.appendChild(image);
-    texto=contenedor.createElement("h3")
+function pintarTexto() {
+    const contenedor = document.getElementById("contenedorTextos");
+    contenedor.innerHTML = "";
 
-    contenedor.appendChild
+    let aleatorio = generarAleatorio(0, textos.length - 1);
+    let desc = textos[aleatorio];
+
+    let texto = document.createElement("h3");
+    texto.innerText = desc;
+
+    contenedor.appendChild(texto);
 }
 
+function pintarNombre() {
+  const contenedor = document.getElementById("contenedorNombre");
+  contenedor.innerHTML = "";
+
+  let aleatorio = generarAleatorio(0, textos.length - 1);
+  let desc = textos[aleatorio];
+
+  let texto = document.createElement("h3");
+  texto.innerText = desc;
+
+  contenedor.appendChild(texto);
+}
+
+function pintarImagen() {
+    const contenedor = document.getElementById("contenedorimg");
+    contenedor.innerHTML = "";
+    let num = 0;
+    let aleatorio = generarAleatorio(0, urls.length - 1);
+
+    while (num == aleatorio) {
+        aleatorio = generarAleatorio(0, urls.length - 1);
+    }
+    num = aleatorio;
+    let url = urls[aleatorio];
+    let image = document.createElement("img");
+
+    image.src = url;
+    contenedor.appendChild(image);
+
+    pintarTexto();
+}
+
+function generarAleatorio(min, max) {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+}
 //Boton index: NuestrosProyectos
 
 const botonTexto = document.getElementById('botonProyectos');
 
-//----------------------------
-
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
-  } else {
-    console.error('La geolocalización no es compatible con este navegador.');
-  }
-  
-  function mostrarUbicacion(posicion) {
-    const latitud = posicion.coords.latitude;
-    const longitud = posicion.coords.longitude;
-  
-    // Convertir las coordenadas a una ciudad usando una API de geocodificación
-    fetch('https://api.geocoding.xyz/?lat=' + latitud + '&lng=' + longitud + '&json=1')
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === 'OK') {
-            const ciudad = data.city;
-            const pais = data.country;
-            const textoElement = document.getElementById('textoPersonalizado');
-
-// Create an h3 element for the city
-const cityHeading = document.createElement('h3');
-cityHeading.textContent = '¡Bienvenido a nuestra página web desde ' + ciudad + '!';
-
-// Create a p element for the country
-const countryParagraph = document.createElement('p');
-countryParagraph.textContent = ', ' + pais + '.';
-
-// Append the dynamic elements to the target div
-textoElement.appendChild(cityHeading);
-textoElement.appendChild(countryParagraph);
-  
-          // Mostrar el texto personalizado
-          textoElement = document.getElementById('textoPersonalizado');
-          textoElement.textContent = '¡Bienvenido a nuestra página web desde ' + ciudad + ', ' + pais + '!';
-        } else {
-          console.error('Error al obtener la información de geocodificación:', data.error);
-        }
-      })
-      .catch(error => console.error('Error al obtener la información de geolocalización:', error));
-  }
-  
-  function mostrarError(error) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        console.error('El usuario ha denegado el permiso para acceder a su ubicación.');
-        break;
-      case error.POSITION_UNAVAILABLE:
-        console.error('La información de ubicación no está disponible.');
-        break;
-      case error.TIMEOUT:
-        console.error('La solicitud de geolocalización ha excedido el tiempo límite.');
-        break;
-      default:
-        console.error('Error desconocido de geolocalización:', error.message);
-    }
-  }
-
- 
 // Obtenemos el chiste
 function chistesAPI(){
   fetch('https://api.chucknorris.io/jokes/random')
